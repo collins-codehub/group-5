@@ -21,10 +21,14 @@ from eduka import views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', views.register, name='register'),
-    path('login/', views.login, name='login'),
+    path('register/', views.registerview, name='register'),
+    path('login/', views.loginview, name='login'),
     path('base/',views.base,name='base'),
     path('cart/', views.cart, name='cart'),
-    path('index/', views.index, name='index')
+    path('', views.index, name='index'),
+    path('forgot_password/', views.forgot_password, name='forgot_password'),
+    path('logout/',views.logoutview, name='logout'),
+    path('password_reset_sent/<str:reset_id>/', views.password_reset_sent, name='password_reset_sent'),
+    path('reset_password<str:reset_id>/', views.reset_password, name='reset_password')
 
 ]

@@ -8,12 +8,23 @@
 <body class="bg-primary">
 <div class="container vh-100 d-flex justify-content-center align-items-center">
     <div class="col-lg-5 bg-white p-5 rounded-4 shadow">
+		{% if messages %}
+    		{% for message in messages %}
+        		{% if message.tags == 'error' %}
+            		<h4 class="text-danger text-center">{{message}}</h4>
+        		{% else %}
+            		<h4 class="text-primary text-center">{{message}}</h4>
+       			 {% endif %}
+    		{% endfor %}
+		{% endif %}
       <form method="POST" class="text-center">
-		  {% csrf_token%}
+		  {% csrf_token %}
 		  <h2 class="fw-bold mb-4">Signup</h2>
-		  <input type="email" name="email" placeholder="Email" class="form-control mb-3 py-2 bg-light">
-		  <input type="password" name=" password" placeholder="Create password" class="form-control mb-3 py-2 bg-light">
-		  <input type="password" name=" confirm_password" placeholder="Confirm password" class="form-control mb-4 py-2 bg-light">
+		  <input type="text" required name="first_name" placeholder="Frankine" class="form-control mb-3 py-2 bg-light">
+		  <input type="text" required name="last_name" placeholder="Benard" class="form-control mb-3 py-2 bg-light">
+		  <input type="text" required name="username" placeholder="Huncho" class="form-control mb-3 py-2 bg-light">
+		  <input type="email" required name="email" placeholder="Email" class="form-control mb-3 py-2 bg-light">
+		  <input type="password" required name="password" placeholder="Create password" class="form-control mb-3 py-2 bg-light">
 
 		<button class="btn btn-primary w-100 py-2 mb-3 fw-semibold ">Signup</button>
 		<p class="small text-muted">Already have an account ? <a href="{% url 'login' %}">Login here</a></p>
