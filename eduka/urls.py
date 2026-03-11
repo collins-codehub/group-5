@@ -24,12 +24,26 @@ urlpatterns = [
     path('register/', views.registerview, name='register'),
     path('login/', views.loginview, name='login'),
     path('base/',views.base,name='base'),
-    path('cart/', views.cart, name='cart'),
     path('', views.index, name='index'),
     path('forgot_password/', views.forgot_password, name='forgot_password'),
     path('logout/',views.logoutview, name='logout'),
     path('password_reset_sent/<str:reset_id>/', views.password_reset_sent, name='password_reset_sent'),
+<<<<<<< HEAD
     path('reset_password/<str:reset_id>/', views.reset_password, name='reset_password'),
     path('checkout/', views.lipa_na_mpesa, name='checkout')
+=======
+    path('reset_password<str:reset_id>/', views.reset_password, name='reset_password'),
+    path('account/', views.account, name='account'),
+    path('', views.order_list, name='order_list'),
+    path('edit/<int:id>/', views.order_edit, name='order_edit'),
+    path('delete/<int:id>/', views.order_delete, name='order_delete'),
+    path('checkout/', views.checkout, name='checkout'),
+    path('success/', views.checkout_success, name='checkout_success'),
+    path('products/', views.product_list, name='product_list'),
+    path('products/<slug:slug>/', views.product_detail, name='product_detail'),
+    path('cart/', views.cart_detail, name='cart_detail'),
+    path('cart/add/<int:product_id>/', views.cart_add, name='cart_add'),
+    path('cart/remove/<int:product_id>/', views.cart_remove, name='cart_remove'),
+>>>>>>> d8322ce5462f6becc692692162ff9fa96f18ce5f
 
 ]
